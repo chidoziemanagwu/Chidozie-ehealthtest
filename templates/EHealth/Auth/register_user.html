@@ -1,0 +1,202 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+
+{% block title_tag %}
+	<title>EHealth - Sign Up Users.</title>
+{% endblock title_tag %}
+
+{% block EHealth_navbar %}
+	<!-- Navbar-->
+	<header class="header">
+	    <nav class="navbar navbar-expand-lg navbar-light py-3">
+	        <div class="container">
+	            <!-- Navbar Brand -->
+	            <a href="#" class="navbar-brand">
+	                <img src="https://res.cloudinary.com/mhmd/image/upload/v1571398888/Group_1514_tjekh3_zkts1c.svg" alt="logo" width="150">
+	            </a>
+	        </div>
+	    </nav>
+	</header>
+{% endblock EHealth_navbar %}
+
+{% block EHealth_content %}
+	<div class="container">
+	    <div class="row align-items-center">
+	        <!-- For Demo Purpose -->
+	        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+	            <img src="{% static 'img/user_auth.svg' %}" alt="" class="img-fluid mb-3 d-none d-md-block">
+	            <div class="text-center">
+		            <h1>Create an Account</h1>
+		            <p class="font-italic text-muted mb-0">Join the leading community of medical enthusiasts and connect with millions of names in the health industry.</p>
+		            <p class="font-italic text-muted">Created By <a target="_blank" href="https://mrmanagwu.herokuapp.com/" class="text-muted">
+		                <u>Mr.Managwu</u></a>
+		            </p>
+		        </div>
+	        </div>
+
+	        <!-- Registeration Form -->
+	        <div class="col-md-7 col-lg-6 ml-auto">
+	            <form method="POST" action=".">
+	            	{% csrf_token %}
+
+	                <div class="row">
+	                    <!-- First Name -->
+	                    <div class="input-group col-lg-6 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-user text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.first_name }}
+	                    </div>
+
+	                    <!-- Last Name -->
+	                    <div class="input-group col-lg-6 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-user text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.last_name }}
+	                    </div>
+
+	                    <!-- User Name -->
+	                    <div class="input-group col-lg-12 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-envelope text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.username }}
+	                    </div>
+		                <div class="usernameFeedBackArea invalid-feedback" style="display:none"></div>
+		                <p class="text-sm text-success usernameSuccessOutput"></p>
+
+	                    <!-- Email Address -->
+	                    <div class="input-group col-lg-12 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-envelope text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.email }}
+	                    </div>
+		                <div class="emailFeedBackArea invalid-feedback" style="display:none"></div>
+		                <p class="text-sm text-success emailSuccessOutput"></p>
+
+	                    <!-- Phone Number -->
+	                    <div class="input-group col-lg-12 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-phone-square text-muted"></i>
+	                            </span>
+	                        </div>
+	                        <!-- <select id="countryCode" name="countryCode" style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
+	                            <option value="">+12</option>
+	                            <option value="">+10</option>
+	                            <option value="">+15</option>
+	                            <option value="">+18</option>
+	                        </select> -->
+	                        {{ profile_form.userphonenumber }}
+	                    </div>
+
+	                    <!-- Password -->
+	                    <div class="input-group col-lg-6 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-lock text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.password1 }}
+	                    </div>
+
+	                    <!-- Password Confirmation -->
+	                    <div class="input-group col-lg-6 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-lock text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.password2 }}
+	                    </div>
+
+	                    {{ form.medical_practitioner.as_hidden }}
+	                    <!-- <input type="radio" name="medical_practitioner" id="medical_practitioner" checked/> -->
+
+	                    {% if profile_form.errors %}
+						
+							{% for key, value in profile_form.errors.items %}
+								<div id="register-form-errors" class="p-3 my-3 auth-form-err" role="alert">
+									
+									<p class="mb-1 error-header"> <strong>Error! </strong> </p>
+									
+									{% for value in value %}
+										<p class="text-left">{{ value }}</p>
+									{% endfor %}
+									
+								</div>
+							{% endfor %}
+							
+						{% endif %}
+						
+						{% if form.errors %}
+							
+							{% for key, value in form.errors.items %}
+								<div id="register-form-errors" class="p-3 my-3 auth-form-err" role="alert">
+									
+									<p class="mb-1 text-bold"> <strong>Error! </strong> </p>
+									
+									{% for value in value %}
+										<p class="error-header">{{ value }}</p>
+									{% endfor %}
+									
+								</div>
+							{% endfor %}
+							
+						{% endif %}
+
+	                    <!-- Submit Button -->
+	                    <div class="form-group col-lg-12 mx-auto mb-0">
+	                        <button id="submit-btn" class="btn btn-primary btn-block py-3">
+	                            <span class="font-weight-bold">Create your account</span>
+	                        </button>
+	                    </div>
+
+	                    <!-- Divider Text -->
+	                    <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+	                        <div class="border-bottom w-100 ml-5"></div>
+	                        <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+	                        <div class="border-bottom w-100 mr-5"></div>
+	                    </div> 
+
+	                    <!-- Social Login 
+	                    <div class="form-group col-lg-12 mx-auto">
+	                        <a href="#" class="btn btn-primary btn-block py-2 btn-facebook">
+	                            <i class="fa fa-facebook-f mr-2"></i>
+	                            <span class="font-weight-bold">Continue with Facebook</span>
+	                        </a>
+	                        <a href="#" class="btn btn-primary btn-block py-2 btn-twitter">
+	                            <i class="fa fa-twitter mr-2"></i>
+	                            <span class="font-weight-bold">Continue with Twitter</span>
+	                        </a>
+	                    </div> -->
+
+	                    <!-- Already Registered -->
+	                    <div class="text-center w-100">
+	                    	<p class="text-muted font-weight-bold">
+	                    		Already Registered? 
+	                    		<a href="{% url 'login' %}" class="text-primary ml-2">
+	                    			Sign In
+	                    		</a>
+	                    	</p>
+	                    </div>
+
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+{% endblock EHealth_content %}

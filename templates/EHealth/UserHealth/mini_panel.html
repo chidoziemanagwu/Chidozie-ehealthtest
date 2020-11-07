@@ -1,0 +1,122 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+{% block title_tag %}
+	<title>EHealth - Mini Panel.</title>
+{% endblock title_tag %}
+
+
+{% block EHealth_content %}
+	<!-- Page content holder -->
+	<div class="page-content p-5 theme-background" id="content">
+		<!-- Toggle button -->
+		<div class="panel-header py-5 px-4">
+			<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-2"><i class="fa fa-bars"></i><small class="text-uppercase font-weight-bold"></small></button>
+		</div>
+		<!-- Demo content -->
+		<div class="row">
+			
+			<div class="container py-5">
+				<div class="row">
+					<!-- For demo purpose -->
+					<div class="col-lg-12 mx-auto text-dark text-center">
+						<!-- <h1 class="display-4">Bootstrap 4 circular progress bar</h1> -->
+						<!-- <p class="lead mb-0">Pure CSS solution to create a circular progress bar compatible with Bootstrap 4. </p> -->
+						
+					</div>
+					<!-- END -->
+				</div>
+			</div>
+			<!-- <div class="separator"></div> -->
+			<div class="col-md-12">
+				<div class="row">
+
+					<div class="col-md-3 mb-4">
+						<div class="card text-center">
+							<div class="card-header bg-primary text-light">
+								All users
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ all_users }}
+								</h5>
+								<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 mb-4">
+						<div class="card text-center">
+							<div class="card-header bg-primary text-light">
+								With Previous Illnesses
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ previous }}
+								</h5>
+								<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 mb-4">
+						<div class="card text-center">
+							<div class="card-header bg-primary text-light">
+								Ebola Patients
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ ebola_patients }}
+								</h5>
+								<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 mb-4">
+						<div class="card text-center">
+							<div class="card-header bg-primary text-light">
+								Malaria Patients
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ malaria_patients }}
+								</h5>
+								<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-6 mt-3">
+						<div class="card text-center">
+							<div class="card-header bg-primary text-light">
+								Male Users
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ male_users }}
+								</h5>
+								<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-6 mt-3">
+						<div class="card text-center">
+							<div class="card-header bg-primary text-light">
+								Female Users
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">
+									{{ female_users }}
+								</h5>
+								<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End demo content -->
+{% endblock EHealth_content %}

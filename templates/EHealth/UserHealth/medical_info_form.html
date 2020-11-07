@@ -1,0 +1,197 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+
+{% block title_tag %}
+	<title>EHealth - Medical Info Form.</title>
+{% endblock title_tag %}
+
+{% block EHealth_content %}
+	<!-- Page content holder -->
+	<div class="page-content p-5 theme-background" id="content">
+
+		<!-- Toggle button -->
+		<div class="panel-header py-5 px-4">
+			<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-2"><i class="fa fa-bars"></i><small class="text-uppercase font-weight-bold"></small></button>
+			<h4 class="font-weight-bold text-dark text-center">Give us more info about your health history</h4>
+		</div>
+
+		<div class="py-5">
+			<div id="health_form_container" class="row">
+				<!-- Health Info Form -->
+			    <div class="col-md-7 col-lg-6 mr-auto">
+			        <form id="medical_form" method="POST" action=".">
+			        	{% csrf_token %}
+
+			            <div class="row">
+			                <!-- Gender -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-user text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.Gender }}
+			                </div>
+
+			                <!-- Age -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-user text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.age }}
+			                </div>
+
+			                <!-- Blood Group -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-envelope text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.blood_group }}
+			                </div>
+
+			                <!-- Genotype -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-envelope text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.genotype }}
+			                </div>
+
+			                <!-- Ebola Status -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-envelope text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.ebola_status.label }}
+			                    {{ health_form.ebola_status }}
+			                </div>
+
+
+
+			                <!-- Malaria Status -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-envelope text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.malaria_status.label }}
+			                    {{ health_form.malaria_status }}
+			                </div>
+
+
+
+			                <!-- Previous Status -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-envelope text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.previous.label }}
+			                    {{ health_form.previous }}
+			                </div>
+
+			                <!-- Previous Illness 1 -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-phone-square text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.previous_illness1 }}
+			                </div>
+
+			                <!-- Previous Illness 2 -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-phone-square text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.previous_illness2 }}
+			                </div>
+
+			                <!-- Previous Illness 3 -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-phone-square text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.previous_illness3 }}
+			                </div>
+
+			                <!-- Previous Illness 4 -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-phone-square text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.previous_illness4 }}
+			                </div>
+
+			                <!-- Previous Illness 5 -->
+			                <div class="input-group col-lg-12 mb-4">
+			                    <!-- <div class="input-group-prepend">
+			                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+			                            <i class="fa fa-phone-square text-muted"></i>
+			                        </span>
+			                    </div> -->
+			                    {{ health_form.previous_illness5 }}
+			                </div>
+
+			                <!-- Submit Button -->
+			                <div class="form-group col-lg-12 mx-auto mt-2">
+			                    <button id="health_update" type="submit" class="btn btn-primary btn-block py-3">
+			                        <span class="font-weight-bold">Update your records</span>
+			                    </button>
+			                </div> 
+
+			                {% if health_form.errors %}
+							
+								{% for key, value in health_form.errors.items %}
+									<div id="health-form-errors"  style="display: block;" class="p-3 my-3 auth-form-err" role="alert">
+										
+										<p class="mb-1 text-bold"> <strong>Error! </strong> </p>
+										
+										{% for value in value %}
+											<p class="error-header">{{ value }}</p>
+										{% endfor %}
+										
+									</div>
+								{% endfor %}
+								
+							{% endif %}
+
+			            </div>
+			        </form>
+			    </div>
+
+			    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+		            <img src="{% static 'img/health_form.svg' %}" alt="" class="img-fluid mb-3 d-none d-md-block">
+		            <div class="text-center">
+			            <h1>Your health is our priority</h1>
+			            <p class="font-italic text-muted mb-0">The data you give us, the more accurate our recommendations for you to live a healthier life.</p>
+			            <p class="font-italic text-muted">Created By <a target="_blank" href="https://mrmanagwu.herokuapp.com/" class="text-muted">
+			                <u>Mr.Managwu</u></a>
+			            </p>
+			        </div>
+		        </div>
+
+		    </div>
+		</div>
+	</div>
+{% endblock EHealth_content %}

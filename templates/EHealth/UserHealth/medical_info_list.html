@@ -1,0 +1,74 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+
+{% block title_tag %}
+	<title>EHealth - Medical Info Table.</title>
+{% endblock title_tag %}
+
+
+
+{% block EHealth_content %}
+	<!-- Page content holder -->
+	<div class="page-content p-5 theme-background" id="content">
+		<!-- Toggle button -->
+		<div class="panel-header py-5 px-4">
+			<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-2"><i class="fa fa-bars"></i><small class="text-uppercase font-weight-bold"></small></button>
+			<h4 class="font-weight-bold text-dark text-center">Health Info of all users on EHealth</h4>
+		</div>
+
+	    <div class="mt-5">
+	        <div class="row">
+	            <div class="col-md-12 mx-auto bg-white rounded shadow py-4">
+
+	                <!-- Fixed header table-->
+	                <div class="table-responsive" style="height: 50vh;">
+	                    <table class="table">
+	                        <thead class="py-4 bg-primary text-light" style="background: #eeeeee;
+">
+	                            <tr>
+	                                <th>Username</th>
+	                                <th>Gender</th>
+	                                <th>Age</th>
+	                                <th>Blood Group</th>
+	                                <th>Genotype</th>
+	                                <th>Ebola Status</th>
+	                                <th>Malaria Status</th>
+	                                <th>Previous</th>
+	                                <th>Previous Illness1</th>
+	                                <th>Previous Illness2</th>
+	                                <th>Previous Illness3</th>
+	                                <th>Previous Illness4</th>
+	                                <th>Previous Illness5</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            {% for EH_user in all_user_data %}
+		                            <tr>
+		                                <th>{{ EH_user.user.username }}</th>
+		                                <td>{{ EH_user.Gender }}</td>
+		                                <td>{{ EH_user.age }}</td>
+		                                <td>{{ EH_user.blood_group }}</td>
+		                                <td>{{ EH_user.genotype }}</td>
+		                                <td>{{ EH_user.ebola_status }}</td>
+		                                <td>{{ EH_user.malaria_status }}</td>
+		                                <td>{{ EH_user.previous }}</td>
+		                                <td>{{ EH_user.previous_illness1 }}</td>
+		                                <td>{{ EH_user.previous_illness2 }}</td>
+		                                <td>{{ EH_user.previous_illness3 }}</td>
+		                                <td>{{ EH_user.previous_illness4 }}</td>
+		                                <td>{{ EH_user.previous_illness5 }}</td>
+		                            </tr>
+		                        {% endfor %}
+	                            
+	                        </tbody>
+	                    </table>
+	                </div><!-- End -->
+	                
+	            </div>
+	        </div>
+	    </div>
+	</div>
+{% endblock EHealth_content %}

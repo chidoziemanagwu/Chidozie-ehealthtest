@@ -1,0 +1,83 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+
+{% block title_tag %}
+	<title>EHealth - Home.</title>
+{% endblock title_tag %}
+
+{% block EHealth_navbar %}
+	<!-- Navbar-->
+	<header class="header">
+	    <nav class="navbar navbar-expand-lg navbar-light py-3">
+	        <div class="container">
+	            <!-- Navbar Brand -->
+	            <a href="#" class="navbar-brand">
+	                <img src="https://res.cloudinary.com/mhmd/image/upload/v1571398888/Group_1514_tjekh3_zkts1c.svg" alt="logo" width="150">
+	            </a>
+	        </div>
+	    </nav>
+	</header>
+{% endblock EHealth_navbar %}
+
+{% block EHealth_content %}
+	<!-- Bootstrap Static Header -->
+	<div style="background: url({% static 'img/medical_header.jpg' %})" class="jumbotron bg-cover text-white">
+	    <div class="container py-5 text-center">
+	        <h1 class="display-4 font-weight-bold">Welcome To EHealth Platform</h1>
+	        <p class="font-italic mb-0">We are committed to creating a stable Health monitoring system for all people irrespective of age group, gender or race. We are all about your health because Health is Wealth.</p>
+	        <p class="font-italic">Created By
+	            <a target="_blank" href="https://mrmanagwu.herokuapp.com/" class="text-white">
+	                <u>Mr.Managwu</u>
+	            </a>
+	        </p>
+	        <a href="{% url 'login' %}" role="button" class="btn btn-primary px-5 mt-3">Sign In</a>
+	    </div>
+	</div>
+
+	<!-- For Demo Purpose -->
+	<div class="container py-5 text-center">
+	    <h2 class="h3 font-weight-bold">Who Are We?</h2>
+	    <div class="row">
+	        <div class="col-md-12 mb-4">
+	            <p class="font-italic text-muted">EHealth is a world renowned establishment which has built a solid reputation in connecting all bright minds accross various divisions of the medical industry to all who have interest in medicine, health or living a generally healthy life.</p>
+	            <!-- <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p> -->
+	        </div>
+	        <div class="col-md-12">
+	            <p class="font-italic text-muted">We are very pleased to welcome you <strong class="font-weight-bold text-dark">Join EHealth </strong>and become part of the elite world of medicine from anywhere in the world. Join as either: <strong class="font-weight-bold text-dark">A Medical Practitioner </strong> <strong class="font-weight-bold text-dark"> OR </strong> <strong class="font-weight-bold text-dark"> A Healthy User </strong> All are welcome to the community, remember health means wealth.</p>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="container py-5">
+		<p class="text-center">
+	        <h4 class="display-4 font-weight-bold text-center">Make your choice</h4>
+	    </p>
+		<div class="row mt-4">
+		    <!-- <div class="col-md-12"> -->
+	    	<div class="col-md-6">
+	    		<div class="text-center signup-option py-5">
+	    			<p class="text-center">
+	    				<img style="width: 4em;" src="{% static 'img/user.svg' %}">
+	    			</p>
+		    		<a href="{% url 'user-register' %}">
+		    			<button class="btn btn-primary px-5 mt-3 py-2">Sign up as a User</button>
+		    		</a>
+		    	</div>
+	    	</div>
+	    	<div class="col-md-6">
+	    		<div class="text-center signup-option py-5">
+	    			<p class="text-center">
+	    				<img style="width: 4em;" src="{% static 'img/doctor.svg' %}">
+	    			</p>
+		    		<a href="{% url 'doctor-register' %}">
+		    			<button class="btn btn-primary px-5 mt-3 py-2">Sign up as a Doctor</button>
+		    		</a>
+		    	</div>
+	    	</div>
+		    <!-- </div> -->
+	    </div>
+	</div>
+{% endblock EHealth_content %}

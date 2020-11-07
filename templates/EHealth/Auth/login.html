@@ -1,0 +1,119 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+
+
+{% block title_tag %}
+	<title>EHealth - Sign In.</title>
+{% endblock title_tag %}
+
+{% block EHealth_navbar %}
+	<!-- Navbar-->
+	<header class="header">
+	    <nav class="navbar navbar-expand-lg navbar-light py-3">
+	        <div class="container">
+	            <!-- Navbar Brand -->
+	            <a href="#" class="navbar-brand">
+	                <img src="https://res.cloudinary.com/mhmd/image/upload/v1571398888/Group_1514_tjekh3_zkts1c.svg" alt="logo" width="150">
+	            </a>
+	        </div>
+	    </nav>
+	</header>
+{% endblock EHealth_navbar %}
+
+{% block EHealth_content %}
+	<div class="container">
+	    <div class="row py-5 mt-4 align-items-center">
+	        <!-- For Demo Purpose -->
+	        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+	            <img src="{% static 'img/sign_in.svg' %}" alt="" class="img-fluid mb-3 d-none d-md-block">
+	            <div class="text-center">
+		            <h1>Welcome Back</h1>
+		            <p class="font-italic text-muted mb-0">We have kept your engagements hot and ready for you, they are just a click away.</p>
+		            <p class="font-italic text-muted">Created By <a target="_blank" href="https://mrmanagwu.herokuapp.com/" class="text-muted">
+		                <u>Mr.Managwu</u></a>
+		            </p>
+		        </div>
+	        </div>
+
+	        <!-- Registeration Form -->
+	        <div class="col-md-7 col-lg-6 ml-auto">
+	            <form id="eHealth_login" method="POST" action=".">
+	            	{% csrf_token %}
+
+	                <div class="row">
+
+	                    <!-- Email Address 
+	                    <div class="input-group col-lg-12 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-envelope text-muted"></i>
+	                            </span>
+	                        </div>
+	                        <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+	                    </div> -->
+
+	                    <!-- User Name -->
+	                    <div class="input-group col-lg-12 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-envelope text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.username }}
+	                        <!-- <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md"> -->
+	                    </div>
+
+	                    <!-- Password -->
+	                    <div class="input-group col-lg-12 mb-4">
+	                        <div class="input-group-prepend">
+	                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+	                                <i class="fa fa-lock text-muted"></i>
+	                            </span>
+	                        </div>
+	                        {{ form.password }}
+	                        <!-- <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md"> -->
+	                    </div>
+
+	                    <!-- Submit Button -->
+	                    <div class="form-group col-lg-12 mx-auto mb-0">
+	                        <button id="submit-btn" class="btn btn-primary btn-block py-3">
+	                            <span class="font-weight-bold">Sign In</span>
+	                        </button>
+	                    </div>
+
+	                    <!-- Divider Text -->
+	                    <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+	                        <div class="border-bottom w-100 ml-5"></div>
+	                        <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+	                        <div class="border-bottom w-100 mr-5"></div>
+	                    </div>
+
+	                    {% if form.errors %}
+							
+							{% for key, value in form.errors.items %}
+								<div id="register-form-errors" class="p-3 my-3 auth-form-err" role="alert">
+									
+									<p class="mb-1 text-bold"> <strong>Error! </strong> </p>
+									
+									{% for value in value %}
+										<p class="error-header">{{ value }}</p>
+									{% endfor %}
+									
+								</div>
+							{% endfor %}
+							
+						{% endif %}
+
+	                    <!-- Already Registered -->
+	                    <div class="text-center w-100">
+	                        <p class="text-muted font-weight-bold">Create an Account <a href="{% url 'eHealth-home' %}" class="text-primary ml-2">Sign Up</a></p>
+	                    </div>
+
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+{% endblock EHealth_content %}

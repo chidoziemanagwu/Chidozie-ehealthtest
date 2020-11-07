@@ -1,0 +1,36 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+{% block title_tag %}
+	<title>EHealth - Update Successful.</title>
+{% endblock title_tag %}
+
+{% block EHealth_navbar %}
+	<!-- Navbar-->
+	<header class="header">
+	    <nav class="navbar navbar-expand-lg navbar-light py-3">
+	        <div class="container">
+	            <!-- Navbar Brand -->
+	            <a href="#" class="navbar-brand">
+	                <img src="https://res.cloudinary.com/mhmd/image/upload/v1571398888/Group_1514_tjekh3_zkts1c.svg" alt="logo" width="150">
+	            </a>
+	        </div>
+	    </nav>
+	</header>
+{% endblock EHealth_navbar %}
+
+{% block EHealth_content %}
+	<div id="health_form_replacement" class="col-md-12 bg-white opacity-3 p-5 text-center">
+    	<div class="m-auto">
+    		<div class="col-md-5 pr-lg-5 mb-5 mb-md-0 mx-auto p-5 text-center">
+	    		<img src="{% static 'img/form_success.svg' %}" alt="" class="img-fluid mb-3 d-none d-md-block">
+	    		<h5 class="font-weight-bold text-success"> update successful </h5>
+	    	</div>
+	    	<a href="{% url 'mini-panel' %}" role="button" class="btn btn-primary px-5 mt-3">
+	    		<i class="fa fa-home mr-3 text-light fa-fw"></i>
+	    		Back to home
+	    	</a>
+    	</div>
+    </div>
+{% endblock EHealth_content %}
